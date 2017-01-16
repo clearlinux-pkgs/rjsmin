@@ -4,7 +4,7 @@
 #
 Name     : rjsmin
 Version  : 1.0.12
-Release  : 9
+Release  : 10
 URL      : https://pypi.python.org/packages/source/r/rjsmin/rjsmin-1.0.12.tar.gz
 Source0  : https://pypi.python.org/packages/source/r/rjsmin/rjsmin-1.0.12.tar.gz
 Summary  : Javascript Minifier
@@ -43,13 +43,16 @@ python components for the rjsmin package.
 %setup -q -n rjsmin-1.0.12
 
 %build
+export LANG=C
+export SOURCE_DATE_EPOCH=1484572411
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
+export SOURCE_DATE_EPOCH=1484572411
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
