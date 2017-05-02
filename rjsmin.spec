@@ -4,7 +4,7 @@
 #
 Name     : rjsmin
 Version  : 1.0.12
-Release  : 10
+Release  : 11
 URL      : https://pypi.python.org/packages/source/r/rjsmin/rjsmin-1.0.12.tar.gz
 Source0  : https://pypi.python.org/packages/source/r/rjsmin/rjsmin-1.0.12.tar.gz
 Summary  : Javascript Minifier
