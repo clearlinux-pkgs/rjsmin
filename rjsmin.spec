@@ -4,9 +4,9 @@
 #
 Name     : rjsmin
 Version  : 1.0.12
-Release  : 11
-URL      : https://pypi.python.org/packages/source/r/rjsmin/rjsmin-1.0.12.tar.gz
-Source0  : https://pypi.python.org/packages/source/r/rjsmin/rjsmin-1.0.12.tar.gz
+Release  : 12
+URL      : http://pypi.debian.net/rjsmin/rjsmin-1.0.12.tar.gz
+Source0  : http://pypi.debian.net/rjsmin/rjsmin-1.0.12.tar.gz
 Summary  : Javascript Minifier
 Group    : Development/Tools
 License  : Apache-2.0
@@ -19,9 +19,15 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-===========================================
-rJSmin - A Javascript Minifier For Python
-===========================================
+Javascript Minifier
+        =====================
+        
+        rJSmin is a javascript minifier written in python.
+        
+        The minifier is based on the semantics of `jsmin.c by Douglas Crockford`_\.
+        
+        The module is a re-implementation aiming for speed, so it can be used at
+        runtime (rather than during a preprocessing step). Usually it produces the
 
 %package doc
 Summary: doc components for the rjsmin package.
@@ -43,16 +49,22 @@ python components for the rjsmin package.
 %setup -q -n rjsmin-1.0.12
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484572411
+export SOURCE_DATE_EPOCH=1503078586
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1484572411
+export SOURCE_DATE_EPOCH=1503078586
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
@@ -63,4 +75,5 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
