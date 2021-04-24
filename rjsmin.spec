@@ -4,7 +4,7 @@
 #
 Name     : rjsmin
 Version  : 1.1.0
-Release  : 28
+Release  : 29
 URL      : https://files.pythonhosted.org/packages/a2/ba/0fa30f7ec949714b8397e80ee2057d1a7e77b3a9f1b94c1ece93586cf34f/rjsmin-1.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a2/ba/0fa30f7ec949714b8397e80ee2057d1a7e77b3a9f1b94c1ece93586cf34f/rjsmin-1.1.0.tar.gz
 Summary  : Javascript Minifier
